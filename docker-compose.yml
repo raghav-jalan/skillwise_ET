@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  skillwise-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: skillwise-web
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
